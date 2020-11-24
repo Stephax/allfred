@@ -43,8 +43,14 @@ input[type="submit"] {
     font-weight: 500;
 }
 
+.aftersubmit-error {
+    display: none;
+    padding-top: 10px;
+}
+
 .aftersubmit {
     display: none;
+    padding-top: 10px;
 }
 
 .mt-200 {
