@@ -1,29 +1,29 @@
 var submitting = false;
 $(function() {
-    $("#submit").click(function(e) {
-        trySubmitEmail();
-        e.preventDefault();
-        return false;
-    });
-    $('#email').on('keypress', function(e) {
-        if (e.which == 13) {
+        $("#submit").click(function(e) {
             trySubmitEmail();
             e.preventDefault();
             return false;
-        } else {
+        });
+        $('#email').on('keypress', function(e) {
+            if (e.which == 13) {
+                trySubmitEmail();
+                e.preventDefault();
+                return false;
+            } else {
+                $(this).toggleClass('error', false);
+            }
+        });
+        $('#email').on('keyup', function(e) {
             $(this).toggleClass('error', false);
-        }
-    });
-    $('#email').on('keyup', function(e) {
-        $(this).toggleClass('error', false);
-    });
+        });
 
-    $(window).on('resize', resizer);
-    resizer();
-})
-$(window).load(function() {
-    resizer();
-});
+        $(window).on('resize', resizer);
+        resizer();
+    })
+    // $(window).load(function() {
+    //     resizer();
+    // });
 
 function trySubmitEmail() {
     if (!submitting) {
@@ -79,4 +79,14 @@ function resizer() {
     //...
 }
 
-console.log(_w_h);
+var h = $(window).height();
+
+$(window).on("load resize", function() {
+    if (h < 1030) {
+        $(".img").addClass("low-height");
+        $(".right").addClass("low-height");
+    } else if (h > 1030) {
+        $(".img").removeClass("low-height");
+        $(".right").removeClass("low-height");
+    }
+})
