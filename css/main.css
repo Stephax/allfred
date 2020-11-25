@@ -65,49 +65,30 @@ input[type="submit"] {
 }
 
 .right {
-    background: var(--grey)
-}
-
-.right.low-height .row {
-    margin: 300px auto 0;
+    background: var(--grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .left {
     background: var(--light)
 }
 
+.img-section {
+    height: 100%;
+}
+
 .img {
-    transform: translate(20%, 25%)
-}
-
-.img.low-height {
-    transform: scale(0.8) translate(20%, 15%)
-}
-
-.img img {
-    position: relative;
-    z-index: 2
-}
-
-.img:before {
-    content: url("../images/pattern-before.svg");
-    position: absolute;
-    top: 70px;
-    left: 305px;
-    width: 100%;
-}
-
-.img:after {
-    content: url("../images/pattern-after.svg");
-    position: absolute;
-    top: 70px;
-    left: 35px;
-    z-index: 3;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .right .row {
     width: 545px;
-    margin: 420px auto 0;
 }
 
 .coming-soon {
@@ -192,44 +173,26 @@ input[type="submit"] {
     outline: none;
 }
 
-@media (max-width: 1600px) {
-    .img {
-        transform: translate(5%, 20%);
+@media (max-width: 1980px) {
+    .img img {
+        width: 65%;
     }
-    .img.low-height {
-        transform: scale(0.6) translate(5%, 20%);
+}
+
+@media (max-width: 1400px) {
+    .logo {
+        top: 64px;
+        left: 54px;
     }
-    .right .row,
-    .right.low-height .row {
+}
+
+@media (max-width: 1315px) {
+    .right .row {
         width: 100%;
-        margin: 75px auto 0;
-    }
-}
-
-@media (max-width: 1370px) {
-    .img {
-        transform: scale(0.8) translate(5%, 25%);
-    }
-    .img.low-height {
-        transform: scale(0.6) translate(5%, 20%);
-    }
-}
-
-@media (max-width: 1200px) {
-    .img {
-        transform: scale(0.6) translate(0%, 25%);
-    }
-    .img.low-height {
-        transform: scale(0.6) translate(0%, 20%);
     }
 }
 
 @media (max-width: 991px) {
-    .right .row,
-    .row.low-height .row {
-        flex-direction: column;
-        margin: 40px auto 0;
-    }
     .logo {
         position: unset;
         margin-bottom: 60px;
@@ -237,12 +200,14 @@ input[type="submit"] {
     .coming-soon {
         margin-bottom: 12px;
     }
+    .right .row {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 568px) {
-    .right .row,
-    .right.low-height .row {
-        margin: 20px auto 0;
+    .right .row {
+        width: 100%;
     }
     .title h1 {
         font-size: 32px;
@@ -262,5 +227,9 @@ input[type="submit"] {
     .form .beforesubmit .input {
         width: 100%;
         margin: 10px 0;
+    }
+    .title h1 {
+        font-size: 28px;
+        line-height: 34px;
     }
 }
